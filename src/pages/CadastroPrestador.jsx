@@ -5,11 +5,11 @@ import { mockPrestadores } from '../data/mockData';
 const CadastroPrestador = () => {
   const [prestadores] = useState(mockPrestadores);
 
-  const handleAprovar = (id: string) => {
+  const handleAprovar = (id) => {
     alert(`Prestador ${id} aprovado com sucesso!`);
   };
 
-  const handleRejeitar = (id: string) => {
+  const handleRejeitar = (id) => {
     alert(`Prestador ${id} rejeitado.`);
   };
 

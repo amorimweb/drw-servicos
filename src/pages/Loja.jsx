@@ -5,8 +5,8 @@ import { mockServicos } from '../data/mockData';
 
 const Loja = () => {
   const [searchTerm, setSearchTerm] = useState('');
-  const [selectedCategory, setSelectedCategory] = useState<string>('todas');
-  const [sortBy, setSortBy] = useState<'nome' | 'valor' | 'prazo'>('nome');
+  const [selectedCategory, setSelectedCategory] = useState('todas');
+  const [sortBy, setSortBy] = useState('nome');
 
   const categories = ['todas', ...Array.from(new Set(mockServicos.map(s => s.categoria)))];
 
@@ -68,7 +68,7 @@ const Loja = () => {
           <div>
             <select
               value={sortBy}
-              onChange={(e) => setSortBy(e.target.value as 'nome' | 'valor' | 'prazo')}
+              onChange={(e) => setSortBy(e.target.value)}
               className="input-field"
             >
               <option value="nome">Ordenar por nome</option>

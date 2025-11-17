@@ -6,13 +6,13 @@ import { format } from 'date-fns';
 import ptBR from 'date-fns/locale/pt-BR';
 
 const ExecucaoServico = () => {
-  const { agendamentoId } = useParams<{ agendamentoId: string }>();
+  const { agendamentoId } = useParams();
   const navigate = useNavigate();
 
-  const [etapa, setEtapa] = useState<'pre' | 'durante' | 'final'>('pre');
-  const [fotosIniciais, setFotosIniciais] = useState<string[]>([]);
-  const [fotosDurante, setFotosDurante] = useState<string[]>([]);
-  const [fotosFinais, setFotosFinais] = useState<string[]>([]);
+  const [etapa, setEtapa] = useState('pre');
+  const [fotosIniciais, setFotosIniciais] = useState([]);
+  const [fotosDurante, setFotosDurante] = useState([]);
+  const [fotosFinais, setFotosFinais] = useState([]);
   const [observacoesIniciais, setObservacoesIniciais] = useState('');
   const [observacoesDurante, setObservacoesDurante] = useState('');
   const [observacoesFinais, setObservacoesFinais] = useState('');
@@ -22,7 +22,7 @@ const ExecucaoServico = () => {
   const agendamento = mockAgendamentos.find(a => a.id === agendamentoId);
   const cliente = mockClientes.find(c => c.id === agendamento?.clienteId);
 
-  const handleFotoUpload = (setter: React.Dispatch<React.SetStateAction<string[]>>) => {
+  const handleFotoUpload = (setter) => {
     // Simular upload de foto
     const novaFoto = `https://images.unsplash.com/photo-${Date.now()}?w=400`;
     setter(prev => [...prev, novaFoto]);

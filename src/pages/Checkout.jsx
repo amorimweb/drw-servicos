@@ -4,12 +4,12 @@ import { CreditCard, QrCode, FileText, Minus, Plus } from 'lucide-react';
 import { mockServicos } from '../data/mockData';
 
 const Checkout = () => {
-  const { servicoId } = useParams<{ servicoId: string }>();
+  const { servicoId } = useParams();
   const navigate = useNavigate();
   
   const servico = mockServicos.find(s => s.id === servicoId);
   const [quantidade, setQuantidade] = useState(1);
-  const [formaPagamento, setFormaPagamento] = useState<'pix' | 'cartao' | 'boleto'>('pix');
+  const [formaPagamento, setFormaPagamento] = useState('pix');
   const [parcelas, setParcelas] = useState(1);
   const [recorrencia, setRecorrencia] = useState(false);
 

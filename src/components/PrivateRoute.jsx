@@ -1,13 +1,7 @@
 import { Navigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
-import { UserRole } from '../types';
 
-interface PrivateRouteProps {
-  children: React.ReactNode;
-  allowedRoles?: UserRole[];
-}
-
-const PrivateRoute: React.FC<PrivateRouteProps> = ({ children, allowedRoles }) => {
+const PrivateRoute = ({ children, allowedRoles }) => {
   const { isAuthenticated, user } = useAuth();
 
   if (!isAuthenticated) {

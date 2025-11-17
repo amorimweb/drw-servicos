@@ -4,7 +4,7 @@ import { mockPrestadores } from '../data/mockData';
 
 const Prestadores = () => {
   const [searchTerm, setSearchTerm] = useState('');
-  const [filterStatus, setFilterStatus] = useState<'todos' | 'aprovado' | 'online'>('todos');
+  const [filterStatus, setFilterStatus] = useState('todos');
 
   const prestadoresFiltrados = mockPrestadores.filter(p => {
     const matchesSearch = p.nome.toLowerCase().includes(searchTerm.toLowerCase()) ||
@@ -36,7 +36,7 @@ const Prestadores = () => {
           />
           <select
             value={filterStatus}
-            onChange={(e) => setFilterStatus(e.target.value as 'todos' | 'aprovado' | 'online')}
+            onChange={(e) => setFilterStatus(e.target.value)}
             className="input-field"
           >
             <option value="todos">Todos os prestadores</option>

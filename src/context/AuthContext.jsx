@@ -1,18 +1,10 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
-import { User, UserRole } from '../types';
 import { mockClientes, mockPrestadores } from '../data/mockData';
 
-interface AuthContextType {
-  user: User | null;
-  login: (email: string, password: string, role: UserRole) => boolean;
-  logout: () => void;
-  isAuthenticated: boolean;
-}
+const AuthContext = createContext(undefined);
 
-const AuthContext = createContext<AuthContextType | undefined>(undefined);
-
-export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-  const [user, setUser] = useState<User | null>(null);
+export const AuthProvider = ({ children }) => {
+  const [user, setUser] = useState(null);
 
   useEffect(() => {
     // Simular verificação de sessão
@@ -22,9 +14,9 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
     }
   }, []);
 
-  const login = (email: string, password: string, role: UserRole): boolean => {
+  const login = (email, password, role) => {
     // Simulação de login - em produção viria do backend
-    let foundUser: User | null = null;
+    let foundUser = null;
 
     if (role === 'cliente') {
       foundUser = mockClientes.find(c => c.email === email) || null;

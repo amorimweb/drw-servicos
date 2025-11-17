@@ -16,7 +16,7 @@ const CadastroServico = () => {
     permiteRecorrencia: false,
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
     alert('Serviço cadastrado com sucesso!');
     navigate('/admin');

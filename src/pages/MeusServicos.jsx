@@ -12,7 +12,7 @@ const MeusServicos = () => {
   const minhasCompras = mockCompras.filter(c => c.clienteId === user?.id);
   const meusAgendamentos = mockAgendamentos.filter(a => a.clienteId === user?.id);
 
-  const getStatusBadge = (status: string) => {
+  const getStatusBadge = (status) => {
     const styles = {
       pendente: 'bg-yellow-100 text-yellow-800',
       aceito: 'bg-blue-100 text-blue-800',
@@ -32,8 +32,8 @@ const MeusServicos = () => {
     };
 
     return (
-      <span className={`px-2 py-1 rounded-full text-xs font-medium ${styles[status as keyof typeof styles] || 'bg-gray-100 text-gray-800'}`}>
-        {labels[status as keyof typeof labels] || status}
+      <span className={`px-2 py-1 rounded-full text-xs font-medium ${styles[status] || 'bg-gray-100 text-gray-800'}`}>
+        {labels[status] || status}
       </span>
     );
   };

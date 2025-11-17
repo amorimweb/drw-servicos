@@ -8,7 +8,7 @@ import 'leaflet/dist/leaflet.css';
 import L from 'leaflet';
 
 // Fix para ícones do Leaflet
-delete (L.Icon.Default.prototype as any)._getIconUrl;
+delete L.Icon.Default.prototype._getIconUrl;
 L.Icon.Default.mergeOptions({
   iconUrl: 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon.png',
   iconRetinaUrl: 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon-2x.png',
@@ -19,8 +19,8 @@ const Agendamento = () => {
   const { user } = useAuth();
   const navigate = useNavigate();
   
-  const [viewMode, setViewMode] = useState<'mapa' | 'lista'>('mapa');
-  const [selectedPrestador, setSelectedPrestador] = useState<string | null>(null);
+  const [viewMode, setViewMode] = useState('mapa');
+  const [selectedPrestador, setSelectedPrestador] = useState(null);
   const [dataHora, setDataHora] = useState('');
   const [endereco, setEndereco] = useState('');
   const [observacoes, setObservacoes] = useState('');
@@ -56,7 +56,7 @@ const Agendamento = () => {
     );
   }
 
-  const defaultCenter: [number, number] = cliente?.endereco?.latitude && cliente.endereco.longitude
+  const defaultCenter = cliente?.endereco?.latitude && cliente.endereco.longitude
     ? [cliente.endereco.latitude, cliente.endereco.longitude]
     : [-23.5505, -46.6333];
 

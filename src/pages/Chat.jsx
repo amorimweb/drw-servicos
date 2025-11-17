@@ -7,10 +7,10 @@ import { format } from 'date-fns';
 import ptBR from 'date-fns/locale/pt-BR';
 
 const Chat = () => {
-  const { agendamentoId } = useParams<{ agendamentoId: string }>();
+  const { agendamentoId } = useParams();
   const { user } = useAuth();
   const [mensagem, setMensagem] = useState('');
-  const messagesEndRef = useRef<HTMLDivElement>(null);
+  const messagesEndRef = useRef(null);
 
   const agendamento = mockAgendamentos.find(a => a.id === agendamentoId);
   const mensagens = mockMensagens.filter(m => m.agendamentoId === agendamentoId);

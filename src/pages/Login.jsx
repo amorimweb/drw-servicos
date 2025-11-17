@@ -1,17 +1,16 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
-import { UserRole } from '../types';
 
 const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [role, setRole] = useState<UserRole>('cliente');
+  const [role, setRole] = useState('cliente');
   const [error, setError] = useState('');
   const { login } = useAuth();
   const navigate = useNavigate();
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
     setError('');
 
@@ -35,7 +34,7 @@ const Login = () => {
     admin: { email: 'admin@drw.com', password: '123456' },
   };
 
-  const fillDemo = (selectedRole: UserRole) => {
+  const fillDemo = (selectedRole) => {
     setRole(selectedRole);
     setEmail(demoCredentials[selectedRole].email);
     setPassword(demoCredentials[selectedRole].password);
@@ -60,7 +59,7 @@ const Login = () => {
               </label>
               <select
                 value={role}
-                onChange={(e) => setRole(e.target.value as UserRole)}
+                onChange={(e) => setRole(e.target.value)}
                 className="input-field"
               >
                 <option value="cliente">Cliente</option>

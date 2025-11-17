@@ -4,7 +4,7 @@ import { ShoppingCart, Calendar, CheckCircle } from 'lucide-react';
 import { mockServicos } from '../data/mockData';
 
 const ServicoDetalhes = () => {
-  const { id } = useParams<{ id: string }>();
+  const { id } = useParams();
   const { isAuthenticated } = useAuth();
   const navigate = useNavigate();
   

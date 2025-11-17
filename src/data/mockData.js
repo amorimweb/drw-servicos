@@ -1,6 +1,4 @@
-import { Cliente, Prestador, Servico, Compra, Agendamento, Avaliacao, TransacaoFinanceira, Mensagem } from '../types';
-
-export const mockClientes: Cliente[] = [
+export const mockClientes = [
   {
     id: '1',
     nome: 'João Silva',
@@ -42,7 +40,7 @@ export const mockClientes: Cliente[] = [
   },
 ];
 
-export const mockPrestadores: Prestador[] = [
+export const mockPrestadores = [
   {
     id: 'p1',
     nome: 'Carlos Eletricista',
@@ -121,7 +119,7 @@ export const mockPrestadores: Prestador[] = [
   },
 ];
 
-export const mockServicos: Servico[] = [
+export const mockServicos = [
   {
     id: 's1',
     nome: 'Instalação Elétrica Residencial',
@@ -189,7 +187,7 @@ export const mockServicos: Servico[] = [
   },
 ];
 
-export const mockCompras: Compra[] = [
+export const mockCompras = [
   {
     id: 'c1',
     clienteId: '1',
@@ -233,7 +231,7 @@ export const mockCompras: Compra[] = [
   },
 ];
 
-export const mockAgendamentos: Agendamento[] = [
+export const mockAgendamentos = [
   {
     id: 'a1',
     compraId: 'c2',
@@ -241,7 +239,7 @@ export const mockAgendamentos: Agendamento[] = [
     prestadorId: 'p2',
     servicoId: 's2',
     dataHora: '2024-02-15T14:00:00Z',
-    endereco: mockClientes[0].endereco!,
+    endereco: mockClientes[0].endereco,
     status: 'aceito',
     observacoes: 'Portão azul, tocar interfone 45',
     createdAt: '2024-02-10T10:00:00Z',
@@ -253,14 +251,14 @@ export const mockAgendamentos: Agendamento[] = [
     prestadorId: 'p2',
     servicoId: 's2',
     dataHora: '2024-02-20T10:00:00Z',
-    endereco: mockClientes[0].endereco!,
+    endereco: mockClientes[0].endereco,
     status: 'concluido',
     observacoes: 'Já utilizado anteriormente',
     createdAt: '2024-01-30T11:00:00Z',
   },
 ];
 
-export const mockAvaliacoes: Avaliacao[] = [
+export const mockAvaliacoes = [
   {
     id: 'av1',
     agendamentoId: 'a2',
@@ -272,7 +270,7 @@ export const mockAvaliacoes: Avaliacao[] = [
   },
 ];
 
-export const mockTransacoes: TransacaoFinanceira[] = [
+export const mockTransacoes = [
   {
     id: 't1',
     prestadorId: 'p2',
@@ -284,7 +282,7 @@ export const mockTransacoes: TransacaoFinanceira[] = [
   },
 ];
 
-export const mockMensagens: Mensagem[] = [
+export const mockMensagens = [
   {
     id: 'm1',
     agendamentoId: 'a1',

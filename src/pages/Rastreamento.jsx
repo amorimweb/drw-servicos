@@ -4,7 +4,7 @@ import { mockAgendamentos, mockPrestadores } from '../data/mockData';
 import RastreamentoPrestador from '../components/RastreamentoPrestador';
 
 const Rastreamento = () => {
-  const { agendamentoId } = useParams<{ agendamentoId: string }>();
+  const { agendamentoId } = useParams();
   const navigate = useNavigate();
 
   const agendamento = mockAgendamentos.find(a => a.id === agendamentoId);

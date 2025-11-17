@@ -2,10 +2,9 @@ import { useEffect, useState, useRef } from 'react';
 import { MapContainer, TileLayer, Marker, Popup, Polyline, useMap } from 'react-leaflet';
 import L from 'leaflet';
 import { MapPin, Navigation, Clock } from 'lucide-react';
-import { Prestador, Endereco } from '../types';
 
 // Ícone customizado para prestador em movimento
-const createMovingIcon = (isMoving: boolean) => {
+const createMovingIcon = (isMoving) => {
   return L.divIcon({
     className: 'custom-marker',
     html: `
@@ -39,7 +38,7 @@ const createMovingIcon = (isMoving: boolean) => {
 };
 
 // Componente para ajustar o zoom do mapa automaticamente
-function MapUpdater({ center }: { center: [number, number] }) {
+function MapUpdater({ center }) {
   const map = useMap();
   
   useEffect(() => {
@@ -49,33 +48,28 @@ function MapUpdater({ center }: { center: [number, number] }) {
   return null;
 }
 
-interface RastreamentoPrestadorProps {
-  prestador: Prestador;
-  enderecoDestino: Endereco;
-}
-
-const RastreamentoPrestador: React.FC<RastreamentoPrestadorProps> = ({
+const RastreamentoPrestador = ({
   prestador,
   enderecoDestino,
 }) => {
-  const [prestadorPosition, setPrestadorPosition] = useState<[number, number]>(
+  const [prestadorPosition, setPrestadorPosition] = useState(
     prestador.localizacao 
       ? [prestador.localizacao.latitude, prestador.localizacao.longitude]
       : [-23.5505, -46.6333]
   );
   
   const [isMoving, setIsMoving] = useState(false);
-  const [distanciaRestante, setDistanciaRestante] = useState<number>(0);
-  const [tempoEstimado, setTempoEstimado] = useState<string>('');
+  const [distanciaRestante, setDistanciaRestante] = useState(0);
+  const [tempoEstimado, setTempoEstimado] = useState('');
   const [progresso, setProgresso] = useState(0);
-  const intervalRef = useRef<number | null>(null);
+  const intervalRef = useRef(null);
 
-  const destino: [number, number] = enderecoDestino.latitude && enderecoDestino.longitude
+  const destino = enderecoDestino.latitude && enderecoDestino.longitude
     ? [enderecoDestino.latitude, enderecoDestino.longitude]
     : [-23.5505, -46.6333];
 
   // Função para calcular distância entre dois pontos (Haversine)
-  const calcularDistancia = (lat1: number, lon1: number, lat2: number, lon2: number): number => {
+  const calcularDistancia = (lat1, lon1, lat2, lon2) => {
     const R = 6371; // Raio da Terra em km
     const dLat = (lat2 - lat1) * Math.PI / 180;
     const dLon = (lon2 - lon1) * Math.PI / 180;
@@ -91,7 +85,7 @@ const RastreamentoPrestador: React.FC<RastreamentoPrestadorProps> = ({
   useEffect(() => {
     if (!prestador.localizacao) return;
 
-    const origem: [number, number] = [
+    const origem = [
       prestador.localizacao.latitude,
       prestador.localizacao.longitude
     ];
@@ -159,7 +153,7 @@ const RastreamentoPrestador: React.FC<RastreamentoPrestadorProps> = ({
     };
   }, [prestador.localizacao, destino]);
 
-  const center: [number, number] = [
+  const center = [
     (prestadorPosition[0] + destino[0]) / 2,
     (prestadorPosition[1] + destino[1]) / 2,
   ];
