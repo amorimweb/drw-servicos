@@ -1,8 +1,7 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Search, Filter, Star } from 'lucide-react';
+import { Search, Star } from 'lucide-react';
 import { mockServicos } from '../data/mockData';
-import { Servico } from '../types';
 
 const Loja = () => {
   const [searchTerm, setSearchTerm] = useState('');

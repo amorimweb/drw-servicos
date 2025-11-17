@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { Calendar, MapPin, Clock, CheckCircle, XCircle, AlertCircle, Navigation } from 'lucide-react';
+import { Calendar, MapPin, Navigation } from 'lucide-react';
 import { useAuth } from '../context/AuthContext';
 import { mockCompras, mockAgendamentos, mockServicos } from '../data/mockData';
 import { format } from 'date-fns';

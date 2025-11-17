@@ -1,12 +1,10 @@
 import { useParams, useNavigate } from 'react-router-dom';
 import { ArrowLeft, Navigation } from 'lucide-react';
-import { useAuth } from '../context/AuthContext';
 import { mockAgendamentos, mockPrestadores } from '../data/mockData';
 import RastreamentoPrestador from '../components/RastreamentoPrestador';
 
 const Rastreamento = () => {
   const { agendamentoId } = useParams<{ agendamentoId: string }>();
-  const { user } = useAuth();
   const navigate = useNavigate();
 
   const agendamento = mockAgendamentos.find(a => a.id === agendamentoId);

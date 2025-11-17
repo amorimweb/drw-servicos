@@ -1,4 +1,4 @@
-import { DollarSign, CheckCircle, Clock, TrendingUp } from 'lucide-react';
+import { CheckCircle, Clock, TrendingUp } from 'lucide-react';
 import { useAuth } from '../context/AuthContext';
 import { mockTransacoes } from '../data/mockData';
 import { format } from 'date-fns';

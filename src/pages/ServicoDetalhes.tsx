@@ -1,6 +1,6 @@
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
-import { ShoppingCart, Star, Calendar, MapPin, CheckCircle } from 'lucide-react';
+import { ShoppingCart, Calendar, CheckCircle } from 'lucide-react';
 import { mockServicos } from '../data/mockData';
 
 const ServicoDetalhes = () => {
