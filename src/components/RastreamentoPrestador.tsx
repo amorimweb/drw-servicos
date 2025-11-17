@@ -2,7 +2,7 @@ import { useEffect, useState, useRef } from 'react';
 import { MapContainer, TileLayer, Marker, Popup, Polyline, useMap } from 'react-leaflet';
 import L from 'leaflet';
 import { MapPin, Navigation, Clock } from 'lucide-react';
-import { Agendamento, Prestador, Endereco } from '../types';
+import { Prestador, Endereco } from '../types';
 
 // Ícone customizado para prestador em movimento
 const createMovingIcon = (isMoving: boolean) => {
@@ -50,13 +50,11 @@ function MapUpdater({ center }: { center: [number, number] }) {
 }
 
 interface RastreamentoPrestadorProps {
-  agendamento: Agendamento;
   prestador: Prestador;
   enderecoDestino: Endereco;
 }
 
 const RastreamentoPrestador: React.FC<RastreamentoPrestadorProps> = ({
-  agendamento,
   prestador,
   enderecoDestino,
 }) => {
@@ -70,7 +68,7 @@ const RastreamentoPrestador: React.FC<RastreamentoPrestadorProps> = ({
   const [distanciaRestante, setDistanciaRestante] = useState<number>(0);
   const [tempoEstimado, setTempoEstimado] = useState<string>('');
   const [progresso, setProgresso] = useState(0);
-  const intervalRef = useRef<NodeJS.Timeout | null>(null);
+  const intervalRef = useRef<number | null>(null);
 
   const destino: [number, number] = enderecoDestino.latitude && enderecoDestino.longitude
     ? [enderecoDestino.latitude, enderecoDestino.longitude]
@@ -109,7 +107,7 @@ const RastreamentoPrestador: React.FC<RastreamentoPrestadorProps> = ({
     setIsMoving(true);
 
     // Simular movimento a cada 2 segundos
-    intervalRef.current = setInterval(() => {
+    intervalRef.current = window.setInterval(() => {
       const distanciaAtual = calcularDistancia(
         currentLat, currentLon,
         destino[0], destino[1]
@@ -122,7 +120,7 @@ const RastreamentoPrestador: React.FC<RastreamentoPrestadorProps> = ({
         setTempoEstimado('Chegou!');
         setProgresso(100);
         if (intervalRef.current) {
-          clearInterval(intervalRef.current);
+          window.clearInterval(intervalRef.current);
         }
         return;
       }
@@ -156,7 +154,7 @@ const RastreamentoPrestador: React.FC<RastreamentoPrestadorProps> = ({
 
     return () => {
       if (intervalRef.current) {
-        clearInterval(intervalRef.current);
+        window.clearInterval(intervalRef.current);
       }
     };
   }, [prestador.localizacao, destino]);

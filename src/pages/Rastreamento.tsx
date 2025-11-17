@@ -65,7 +65,6 @@ const Rastreamento = () => {
       </div>
 
       <RastreamentoPrestador
-        agendamento={agendamento}
         prestador={prestador}
         enderecoDestino={agendamento.endereco}
       />

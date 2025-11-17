@@ -1,6 +1,4 @@
 // Arquivo de teste simples para verificar se o React está funcionando
-import React from 'react';
-
 const TestApp = () => {
   return (
     <div style={{ padding: '20px', backgroundColor: '#f0f0f0' }}>
