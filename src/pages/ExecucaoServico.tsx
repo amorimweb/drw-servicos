@@ -1,14 +1,12 @@
 import { useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import { Camera, CheckCircle, Upload, MapPin, Clock, User } from 'lucide-react';
-import { useAuth } from '../context/AuthContext';
+import { Camera, CheckCircle, MapPin, Clock, User } from 'lucide-react';
 import { mockAgendamentos, mockClientes } from '../data/mockData';
 import { format } from 'date-fns';
 import ptBR from 'date-fns/locale/pt-BR';
 
 const ExecucaoServico = () => {
   const { agendamentoId } = useParams<{ agendamentoId: string }>();
-  const { user } = useAuth();
   const navigate = useNavigate();
 
   const [etapa, setEtapa] = useState<'pre' | 'durante' | 'final'>('pre');

@@ -1,12 +1,10 @@
 import { useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import { CreditCard, QrCode, FileText, Package, Minus, Plus } from 'lucide-react';
+import { CreditCard, QrCode, FileText, Minus, Plus } from 'lucide-react';
 import { mockServicos } from '../data/mockData';
-import { useAuth } from '../context/AuthContext';
 
 const Checkout = () => {
   const { servicoId } = useParams<{ servicoId: string }>();
-  const { user } = useAuth();
   const navigate = useNavigate();
   
   const servico = mockServicos.find(s => s.id === servicoId);

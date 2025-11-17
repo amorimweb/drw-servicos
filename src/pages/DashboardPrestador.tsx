@@ -14,12 +14,8 @@ const DashboardPrestador = () => {
 
   const agendamentosPendentes = meusAgendamentos.filter(a => a.status === 'pendente').length;
   const agendamentosAceitos = meusAgendamentos.filter(a => a.status === 'aceito' || a.status === 'em_andamento').length;
-  const agendamentosConcluidos = meusAgendamentos.filter(a => a.status === 'concluido').length;
   const totalReceber = minhasTransacoes
     .filter(t => t.status === 'pendente' || t.status === 'pago')
-    .reduce((acc, t) => acc + t.valor, 0);
-  const totalRecebido = minhasTransacoes
-    .filter(t => t.status === 'pago')
     .reduce((acc, t) => acc + t.valor, 0);
 
   const avaliacaoMedia = minhasAvaliacoes.length > 0

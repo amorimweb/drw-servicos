@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { ShoppingCart, Calendar, CheckCircle, Star, TrendingUp } from 'lucide-react';
+import { ShoppingCart, Calendar, CheckCircle, Star } from 'lucide-react';
 import { useAuth } from '../context/AuthContext';
 import { mockCompras, mockAgendamentos, mockAvaliacoes } from '../data/mockData';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';

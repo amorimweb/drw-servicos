@@ -1,8 +1,8 @@
 import { useState } from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
-import { MapPin, Calendar, Clock, User, CheckCircle, Map } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
+import { MapPin, Calendar, User, CheckCircle, Map } from 'lucide-react';
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
-import { mockPrestadores, mockClientes, mockServicos, mockCompras } from '../data/mockData';
+import { mockPrestadores, mockClientes, mockCompras } from '../data/mockData';
 import { useAuth } from '../context/AuthContext';
 import 'leaflet/dist/leaflet.css';
 import L from 'leaflet';
@@ -16,7 +16,6 @@ L.Icon.Default.mergeOptions({
 });
 
 const Agendamento = () => {
-  const { compraId } = useParams<{ compraId: string }>();
   const { user } = useAuth();
   const navigate = useNavigate();
   

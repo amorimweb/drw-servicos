@@ -1,10 +1,8 @@
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { CheckCircle, XCircle, AlertCircle } from 'lucide-react';
+import { CheckCircle, XCircle } from 'lucide-react';
 import { mockPrestadores } from '../data/mockData';
 
 const CadastroPrestador = () => {
-  const navigate = useNavigate();
   const [prestadores] = useState(mockPrestadores);
 
   const handleAprovar = (id: string) => {
