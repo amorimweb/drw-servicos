@@ -784,22 +784,25 @@ CREATE TRIGGER create_transacao_financeira_trigger
 
 ### Script Completo de Criação
 
-Crie um arquivo `schema.sql` no Supabase SQL Editor e execute:
+✅ **Script SQL pronto para uso:** [`supabase/schema.sql`](../supabase/schema.sql)
 
-```sql
--- ============================================
--- DRW SERVIÇOS - SCHEMA COMPLETO
--- ============================================
+Este arquivo contém todo o schema completo e pode ser executado diretamente no Supabase SQL Editor.
 
--- Extensões
-CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
-CREATE EXTENSION IF NOT EXISTS "pgcrypto";
+**Como usar:**
 
--- [Inserir todas as tabelas acima]
--- [Inserir todos os índices acima]
--- [Inserir todas as políticas RLS acima]
--- [Inserir todos os triggers acima]
-```
+1. Acesse o [Supabase Dashboard](https://app.supabase.com)
+2. Selecione seu projeto
+3. Vá para **SQL Editor**
+4. Clique em **New Query**
+5. Copie e cole o conteúdo de `supabase/schema.sql`
+6. Clique em **Run** ou pressione `Ctrl+Enter`
+
+O script inclui:
+- ✅ Todas as 10 tabelas
+- ✅ Todos os índices
+- ✅ Todas as funções e triggers
+- ✅ Políticas RLS básicas
+- ✅ Dados iniciais (usuário admin)
 
 ### Dados Iniciais (Seed)
 
