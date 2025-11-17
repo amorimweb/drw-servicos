@@ -13,6 +13,7 @@ Sistema completo em React.js para venda, agendamento e execução de serviços. 
   - [👤 Cliente](#3-cliente-busca-e-contrata-serviços)
 - [Rastreamento em Tempo Real](#-rastreamento-em-tempo-real)
 - [Fluxo Completo de Exemplo](#-fluxo-completo-de-exemplo)
+- [Banco de Dados](#-banco-de-dados)
 - [Tecnologias](#️-tecnologias)
 - [Instalação](#-instalação)
 - [Credenciais de Demonstração](#-credenciais-de-demonstração)
@@ -394,6 +395,35 @@ Vamos ver um exemplo prático de ponta a ponta:
 7. **Cliente** avalia: 5 estrelas + comentário positivo
 8. **Admin** libera pagamento: R$ 1.500 para o prestador
 9. **Prestador** recebe no painel financeiro
+
+---
+
+## 🗄️ Banco de Dados
+
+O sistema utiliza **Supabase (PostgreSQL)** como banco de dados. A documentação completa do schema, tabelas, relacionamentos, índices e políticas RLS está disponível em:
+
+📄 **[DATABASE.md](./DATABASE.md)** - Documentação completa do banco de dados
+
+### Resumo das Tabelas
+
+- **users** - Usuários (clientes, prestadores, administradores)
+- **servicos** - Catálogo de serviços disponíveis
+- **compras** - Registro de compras realizadas
+- **agendamentos** - Agendamentos de execução de serviços
+- **execucao_servicos** - Registro fotográfico e observações da execução
+- **avaliacoes** - Avaliações dos prestadores pelos clientes
+- **reclamacoes** - Reclamações sobre serviços
+- **mensagens** - Chat entre cliente e prestador
+- **transacoes_financeiras** - Controle financeiro dos prestadores
+- **pacotes_servicos** - Configuração de pacotes promocionais
+
+### Configuração no Supabase
+
+1. Acesse o [Supabase Dashboard](https://app.supabase.com)
+2. Crie um novo projeto
+3. Acesse o **SQL Editor**
+4. Execute o script completo disponível em `DATABASE.md`
+5. Configure as variáveis de ambiente no frontend
 
 ---
 
